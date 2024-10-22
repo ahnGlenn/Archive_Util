@@ -18,7 +18,13 @@ public static String removeHtmlTags(String source) {
 }
 ```
 
-2.
+2. 파일 유틸
+- Apache Tika 를 이용한 파일 타입 추출(참고: https://glenn-dev.tistory.com/43)
+```
+파일의 Mime Type 을 추출한다.
+public static String getMimeTypeByTika(File file) throws IOException {
+  Tika tika = new Tika();
+  return tika.detect(file);
+}
+```
 
-3.ㅇ
-4.
