@@ -119,7 +119,7 @@ public static String getMimeTypeByTika(File file) throws IOException {
         }
     }
    ```
-   - 3. Controller > Service > ServiceImpl > Mapper > SQL
+- 3. Controller > Service > ServiceImpl > Mapper > SQL
    ```
       1. Controller
          @ModelAttribute PagingRequest pagingRequest
