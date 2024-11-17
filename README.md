@@ -158,6 +158,6 @@ public static String getMimeTypeByTika(File file) throws IOException {
 
       5. SQL
    	 <select id="getTicketList2" resultType="java.util.HashMap">
-        	select * from T_TICKET_INFO LIMIT #{offset}, #{size}
+        		select * from T_TICKET_INFO LIMIT #{offset}, #{size}
     	 </select>
    ```
