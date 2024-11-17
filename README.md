@@ -131,7 +131,7 @@ public static String getMimeTypeByTika(File file) throws IOException {
              // 페이징 객체를 사용한 리스트
              PagingResponse<Map<String, Object>> getTicketList2(PagingRequest pagingRequest);
          }
-       3. ServiceImpl
+      3. ServiceImpl
           @Service
           public class TicketServiceImpl implements TicketService {
               @Autowired
@@ -146,10 +146,8 @@ public static String getMimeTypeByTika(File file) throws IOException {
               }
 
           }
-   ```
 
       4. Mapper
-   ```
          @Mapper
          public interface TicketMapper {
              // 결과를 List<Map<String, Object>>로 받는 경우, @Param 어노테이션 사용
@@ -157,4 +155,9 @@ public static String getMimeTypeByTika(File file) throws IOException {
       
              int getTicketListCount2(PagingRequest pagingRequest);
          }
+
+      5. SQL
+   	 <select id="getTicketList2" resultType="java.util.HashMap">
+        	select * from T_TICKET_INFO LIMIT #{offset}, #{size}
+    	 </select>
    ```
