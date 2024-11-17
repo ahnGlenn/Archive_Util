@@ -126,11 +126,15 @@ public static String getMimeTypeByTika(File file) throws IOException {
          // 입력 값 검증 및 기본값 설정
          PagingResponse<Map<String, Object>> pageResponse = ticketService.getTicketList2(pagingRequest);
 		     model.addAttribute("ticketList", pageResponse);
+
+   
       2. Service
          public interface TicketService {
              // 페이징 객체를 사용한 리스트
              PagingResponse<Map<String, Object>> getTicketList2(PagingRequest pagingRequest);
          }
+
+   
       3. ServiceImpl
           @Service
           public class TicketServiceImpl implements TicketService {
@@ -144,8 +148,8 @@ public static String getMimeTypeByTika(File file) throws IOException {
                 // 페이징 응답 객체 생성
                 return new PagingResponse<>(ticketList, totalRecords, pagingRequest);
               }
-
           }
+
 
       4. Mapper
          @Mapper
@@ -155,6 +159,7 @@ public static String getMimeTypeByTika(File file) throws IOException {
       
              int getTicketListCount2(PagingRequest pagingRequest);
          }
+
 
       5. SQL
    	 <select id="getTicketList2" resultType="java.util.HashMap">
