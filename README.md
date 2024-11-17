@@ -119,4 +119,42 @@ public static String getMimeTypeByTika(File file) throws IOException {
         }
     }
    ```
+   - 3. Controller > Service > ServiceImpl > Mapper > SQL
+   ```
+      1. Controller
+         @ModelAttribute PagingRequest pagingRequest
+         // 입력 값 검증 및 기본값 설정
+         PagingResponse<Map<String, Object>> pageResponse = ticketService.getTicketList2(pagingRequest);
+		     model.addAttribute("ticketList", pageResponse);
+      2. Service
+         public interface TicketService {
+             // 페이징 객체를 사용한 리스트
+             PagingResponse<Map<String, Object>> getTicketList2(PagingRequest pagingRequest);
+         }
+       3. ServiceImpl
+          @Service
+          public class TicketServiceImpl implements TicketService {
+              @Autowired
+              private TicketMapper ticketMapper;
 
+              @Override
+              public PagingResponse<Map<String, Object>> getTicketList2(PagingRequest pagingRequest) {
+                List<Map<String, Object>> ticketList = ticketMapper.getTicketList2(pagingRequest);
+                int totalRecords = ticketMapper.getTicketListCount2(pagingRequest);
+                // 페이징 응답 객체 생성
+                return new PagingResponse<>(ticketList, totalRecords, pagingRequest);
+              }
+
+          }
+   ```
+
+      4. Mapper
+   ```
+         @Mapper
+         public interface TicketMapper {
+             // 결과를 List<Map<String, Object>>로 받는 경우, @Param 어노테이션 사용
+             List<Map<String, Object>> getTicketList2(PagingRequest pagingRequest);
+      
+             int getTicketListCount2(PagingRequest pagingRequest);
+         }
+   ```
