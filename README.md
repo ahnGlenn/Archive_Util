@@ -33,7 +33,7 @@ public static String getMimeTypeByTika(File file) throws IOException {
 <br/><br/>
 
 3. 페이징 모듈
-  - 0.PageUtils 생성
+  - 0. PageUtils 생성
   ```
   import java.util.ArrayList;
   import java.util.List;
@@ -69,7 +69,7 @@ public static String getMimeTypeByTika(File file) throws IOException {
   ```
 
 
-  - 1.PagingRequest.java 생성
+  - 1. PagingRequest.java 생성
   ```
   import lombok.Getter;
   import lombok.Setter;
@@ -94,7 +94,7 @@ public static String getMimeTypeByTika(File file) throws IOException {
       }
   }
   ```
- - 2.PagingResponse.java 생성
+ - 2. PagingResponse.java 생성
    ```
     import com.tiger.crm.common.util.PageUtils2;
     import lombok.Getter;
